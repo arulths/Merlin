@@ -1,5 +1,6 @@
 #LaTeX
 *.gz
+*.dvi
 *.aux
 *.log
 *.toc
