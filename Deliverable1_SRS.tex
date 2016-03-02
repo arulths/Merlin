@@ -16,6 +16,7 @@
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{hyperref}
+\usepackage[color]{changebar}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -29,6 +30,8 @@
 %-------------------------------------------------------------------------
 \newcommand{\merlin}{\textit{Merlin }}
 \newcommand{\merlins}{\textit{Merlin}'s }
+
+\setlength\changebarsep{10pt}
 
 \newcounter{saveenum}
 \newcommand{\pauseEnum}{\setcounter{saveenum}{\value{enumi}}}
@@ -84,7 +87,7 @@ The wide range of inputs of the \merlin system allows users to approximate their
 \hline
 BPM & Beats per Minute. A measure of tempo.\\\\
 
-test-to-speech & An in-app functionality translating sound to the text represented by the words spoken in the sound.\\\\
+speech-to-text & An in-app functionality translating sound to the text represented by the words spoken in the sound.\\\\
 
 friend & Another user of the application with whom one user of the application can share information with.\\\\
 
@@ -198,38 +201,67 @@ The following functions may be delayed until future versions of the system:
 \section{Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
-
+\cbstart
 \begin{enumerate}[{BE}1.]
-	\item The user requests a song search.
+	\item The user wants to find a song.
 	\begin{enumerate}[{VP1}.1]
+		\item Developer
+			\begin{enumerate}
+				\item \merlin must accept 3 search inputs: lyrics, artist and tempo.
+			\end{enumerate}
 		\item User
 			\begin{enumerate}
-				\item \merlin must accept 3 search inputs, lyrics, artist and tempo.
-				\item The user will have the option to use the app's \textit{text-to-speech} functionality to enter lyrics into the search field or type the lyrics with the devices keyboard.
-				\item The user will have the option to use the app's \textit{text-to-speech} functionality to enter the artist's name into the search field or type the artist's name with the devices keyboard.
+				\item The user will have the option to use the app's \textit{speech-to-text} functionality to enter lyrics into the search field or type the lyrics with the devices keyboard.
+				\item The user will have the option to use the app's \textit{speech-to-text} functionality to enter the artist's name into the search field or type the artist's name with the devices keyboard.
 				\item The user will have the option to tap their touch screen to the beat of the song they are searching for in the tempo search field.
-				\item The user must be able to review the query fields before submitting the request.
 				\item The system must return a collection of songs and artists that \merlin finds to match the input criteria.
 			\end{enumerate}
 	\end{enumerate}
-	\item The user requests previous searches.
+	\item The user wants to view their previous searches.
 	\begin{enumerate}[{VP2}.1]
+		\item Developer
+			\begin{enumerate}
+				\item \merlin must track and store all searches.
+			\end{enumerate}
 		\item User
 			\begin{enumerate}
 				\item The user must be able to view and remove searches from their saved history.
 				\item The user must be able to re-execute a previous search.
 			\end{enumerate}
 	\end{enumerate}
-	\item The user selects a search result.
+	\item The user wants more information about a song result.
 	\begin{enumerate}[{VP3}.1]
+		\item Developer
+			\begin{enumerate}
+				\item \merlin must be able to retrieve and display an artist's home town on Google Maps. 
+				\item \merlin must be able to retrieve and display information about the entry's artist.
+				\item \merlin must be able to retrieve and display song information including title and tempo.
+			\end{enumerate}
 		\item User
 			\begin{enumerate}
-				\item The user must be able to view the home town of the entry's artist on Google Maps.
-				\item The user must be able to view information about the entry's artist.
-				\item The user shall be able to view information about the entry's song including title and tempo.
+				\item Detailed information about song results can be requested by the user.
+			\end{enumerate}
+	\end{enumerate}
+	\item The administrator wants to change the experts.
+	\begin{enumerate}[{VP4}.1]
+		\item Developer
+			\begin{enumerate}
+				\item The experts included in \merlin must be disjoint.
+			\end{enumerate}
+		\item Administrator
+			\begin{enumerate}
+				\item \merlin must support the addition or removal of an expert as requested by an administrator.
+			\end{enumerate}
+	\end{enumerate}
+	\item An external entity wants to view a user's searches.
+	\begin{enumerate}[{VP5}.1]
+		\item Security
+			\begin{enumerate}
+				\item \merlin must encrypt all traffic being sent to an external endpoint.
 			\end{enumerate}
 	\end{enumerate}
 \end{enumerate}
+\cbend
 % End Section
 
 \section{Non-Functional Requirements}
