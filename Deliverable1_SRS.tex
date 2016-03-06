@@ -17,6 +17,7 @@
 \usepackage{tabularx}
 \usepackage{hyperref}
 \usepackage[color]{changebar}
+\usepackage{placeins}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -73,23 +74,26 @@
 \subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
+\cbstart
 The app is called \merlin and will identify songs based on artist, lyric and beat. It will use these 3 criteria to try to identify the potential song using a pre-existing database. It also will utilize Google Maps to identify and display the artist’s home town. It will not give the user a song file or a link to a song file. The app interface will accept finger tapping for the beat, voice for lyrics and as well as keyboard input for the artist name. These 3 inputs will be used to identify a single song to the user. The user will not see the individual searches of the inputs only the final guess of the \merlin system.
 
 The wide range of inputs of the \merlin system allows users to approximate their songs in a quick and easy manner without even having to know the language. The main goals of the application include having a robust voice recognition system and a very low latency tap analyser in order to provide the best possible service. If the user knows atleast one of the inputs as certain, it is very likely that the list returned to that user will include the desired song. 
+\cbend
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
+\cbstart
 \begin{table}[!ht]
 \begin{tabularx}{\linewidth}{l|X}
 \textbf{Term} & \textbf{Definition} \\
 \hline
 BPM & Beats per Minute. A measure of tempo.\\\\
 
-speech-to-text & An in-app functionality translating sound to the text represented by the words spoken in the sound.\\\\
+speech-to-text & an in-app functionality translating sound to the text represented by the words spoken in the sound.\\\\
 
-friend & Another user of the application with whom one user of the application can share information with.\\\\
+friend & another user of the application with whom one user of the application can share information with.\\\\
 
 social media & the use of dedicated websites and applications to interact with other users, or to find people with similar interests to oneself.\\\\
 
@@ -111,18 +115,23 @@ ambient noise & noise, unintentionally created, existing in a space.
 \end{tabularx}
 \caption{Definitions, Acronyms, and Abbreviations}
 \end{table}
+\cbend
+\FloatBarrier
 % End SubSection
 
 \subsection{References}
 \label{sub:references}
 % Begin SubSection
-Figure 1: \url{https://musicmachinery.files.wordpress.com/2014/02/with_streaming_and_sharing__teens_find_ways_around_paying_for_music_-_emarketer-2.png?w=620}
+\cbstart
+
+[Figure 1]Musicmachinery.files.wordpress.com, 2013. [Online]. Available: \url{https://musicmachinery.files.wordpress.com/2014/02/with_streaming_and_sharing__teens_find_ways_around_paying_for_music_-_emarketer-2.png?w=620}. [Accessed: 08- Feb- 2016].
+\cbend
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-	The organization of this document follows the template for an SRS for scientific computing software outlined by a combination of the Volere Requirements Specification Template and the IEEE Software Requirements Specification Template. The presentation follows the standard pattern of presenting goals, theories, definitions, and assumptions.
+	The organization of this document follows the template for an SRS for scientific computing software outlined by a combination of the Volere Requirements Specification Template and the IEEE Software Requirements Specification Template. The presentation follows the standard pattern of presenting goals, theories, definitions, and assumptions. Section 2 of this document outlines the overall description of this application. This includes the product functions, user characteristics, constraints, and assumptions and dependancies. Section 3 and section 4 of this document outline the functional requirements and non functional requirements, respectively. 
 % End SubSection
 
 % End Section

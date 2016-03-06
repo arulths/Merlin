@@ -94,7 +94,27 @@ This section should provide an brief overview of the entire document.
 \section{Analysis Class Diagram}
 \label{sec:analysis_class_diagram}
 % Begin Section
-This section should provide an analysis class diagram for your application.
+\subsection{Noun Extraction}
+\begin{description}
+	\item[user] No (outside of system)
+	\item[previous searches] Yes (boundary class) PreviousSearchPage
+	\item[searches] refers to search process, leads to the creation of controller class SearchController
+	\item[success] Yes (boundary class) SearchSuccessPage or SearchResults
+	\item[error] Yes (boundary class) SearchErrorPage
+	\item[song info] Yes (entity class) SongInformation
+	\item[input] refers to input process, leads to the creation of controller class InputController
+	\item[tempo input] Yes (boundary class)
+	\item[lyric input] Yes (boundary class)
+	\item[artist input] Yes (boundary class)
+	\item[song database] Yes (boundary class), Wrapper
+\end{description}
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=0.7]{Analysis_Class_Diagram.png}
+	\caption{Analysis Case Diagram}
+\end{figure}
+\FloatBarrier
 % End Section
 
 
