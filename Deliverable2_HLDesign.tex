@@ -39,31 +39,29 @@
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+This document will go in depth into the design of Merlin, a song lookup application, using various different analysis methods such as a Use Case Diagram, Analysis Class Diagram, Architectural Design Analysis, as well as Class Responsibility Collaboration (CRC) Cards.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the document
-	\item Specify the intended audience for the document
-\end{enumerate}
+	The purpose of this documentation is to state, describe and analyze the architecture of the Merlin song identification app. This will be done through a set of predetermined and proven analysis methods and is intended to be read by the implementation team and client. 
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Give a brief description of the system. This could be a paragraph or two to give some context to this document.
-\end{enumerate}
+	The application, Merlin, contains a back end system that will be discussed in this report. The system is constructed using multiple expert classes and each class will render a different set of code. A user may input the information about a song using the Tempo, Lyric or using the Artists name. The app will then use these experts to find the song that the user is trying to search for from a database of all songs. The user will have their previous search information stored on the device. This application will run on any android application, and will be available for download through the android app store.
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the document contains 
-	\item Explain how the document is organised
+This document has 5 sections including this one. Every section analyzes the architecture of the Merlin application’s system in a different way using either diagrams or words. Following is a breakdown of what each section analyzes: 
+\begin{enumerate}[1)]
+	\item Use Case Analysis and Diagram: This section will demonstrate all possible ways of the app’s interaction with the user. 
+	\item Analysis Class Diagram: This diagram will outline the three different types of classes (boundary, controller or entity) and specify which class falls under which category. This section will also show the different connections between the classes.
+	\item Architectural Design Class: This section will overview and justify the reason for designing the application in the chosen way. 
+	\item Class Responsibility Collaboration Cards: These cards will show the different classes that make up the song identification app, and their key responsibilities. It will also state which classes each other interact with. 
 \end{enumerate}
 % End SubSection
 
