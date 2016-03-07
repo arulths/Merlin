@@ -132,7 +132,7 @@ ambient noise & noise, unintentionally created, existing in a space.
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-	The organization of this document follows the template for an SRS for scientific computing software outlined by a combination of the Volere Requirements Specification Template and the IEEE Software Requirements Specification Template. The presentation follows the standard pattern of presenting goals, theories, definitions, and assumptions. Section 2 of this document outlines the overall description of this application. This includes the product functions, user characteristics, constraints, and assumptions and dependancies. Section 3 and section 4 of this document outline the functional requirements and non functional requirements, respectively. 
+	The organization of this document follows the template for an SRS for scientific computing software outlined by a combination of the Volere Requirements Specification Template and the IEEE Software Requirements Specification Template. The presentation follows the standard pattern of presenting goals, theories, definitions, and assumptions. Section 2 of this document outlines the overall description of this application. This includes the product functions, user characteristics, constraints, and assumptions and dependancies. Section 3 and section 4 of this document outline the functional requirements and non functional requirements, respectively.
 % End SubSection
 
 % End Section
@@ -174,7 +174,17 @@ The \merlin application is an Android application and as such is a component in 
 \subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
-	\merlin is subject to all constraints imposed by the Android operating system, as described in section \ref{sub:product_perspective}. The application is also subject to the physical constraints of the device it runs on, these include: device screen size, device battery life, device memory, device storage, and device processor speed. The application will also be constrained by the strength of the network connectivity used to communicate its data. Merlin will also be constrained by the environment in which the device it is run on is being used. Excessive or ambient noise near the device's microphone may impede \merlins voice recognition accuracy. Weather conditions that make it impractical for a user to use their touch screen will similarly affect the application. 
+	\merlin is subject to all constraints imposed by the Android operating system, as described in section \ref{sub:product_perspective}. Other constraints include:
+	\begin{itemize}
+	\cbstart
+		\item  \merlin must be delivered by April 3rd 2016, this will restrict
+		\item \merlin must be built with only the rescources of its team, 6 students, without any monetary contributions.
+	\cbend 
+		\item \merlin is also subject to the physical constraints of the device it runs on, these include: device screen size, device battery life, device memory, device storage, and device processor speed. 
+		\item \merlin will also be constrained by the strength of the network connectivity used to communicate its data. 
+		\item \merlin will also be constrained by the environment in which the device it is run on is being used. Excessive or ambient noise near the device's microphone may impede \merlins voice recognition accuracy. 
+		\item Weather conditions that make it impractical for a user to use their touch screen will similarly affect \merlin.
+	\end{itemize}
 % End SubSection
 
 \subsection{Assumptions and Dependencies}
