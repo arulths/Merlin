@@ -121,24 +121,30 @@ This section should provide an brief overview of the entire document.
 \section{Architectural Design}
 \label{sec:architectural_design}
 % Begin Section
-This section should provide an overview of the overall architectural design of your application. You overall architecture should show the division of the system into subsystems with high cohesion and low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Identify and explain the overall architecture of your system
-	\item Be sure to clearly state the name of the architecture
-	\item Provide the reasoning and justification of the choice
-	\item Provide a structural architecture diagram showing the relationship among the subsystems (if appropriate)
+	\item A blackboard architectural design will be used.
+	\item The system will primarily use the information obtained by 3 experts to determine a final result. The nature of this structure lends itself to the chosen type architecture.
 \end{enumerate}
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[scale=1]{architecture.png}
+	\caption{System Architecture Diagram}
+\end{figure}
 % End SubSection
 
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Provide a brief description of each subsystem. Be sure to document its purpose and relationship to other subsystems.
+	\item \textbf{Artist Expert:} The expert charged with identifying songs associated with a given artist.
+	\item \textbf{Lyric Expert:} The expert charged with identifying songs associated with a given lyric.
+	\item \textbf{Tempo Expert:} The expert charged with identifying songs associated with a given tempo.
+	\item \textbf{Blackboard:} The subsystem charged with combining data from all other subsystems and producing a final result for the user interface.
+	\item \textbf{User Interface:} The subsystem charged with handling interactions with the user, including input and output.
 \end{enumerate}
 % End SubSection
 
