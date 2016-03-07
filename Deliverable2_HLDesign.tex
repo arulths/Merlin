@@ -152,25 +152,136 @@ This document has 5 sections including this one. Every section analyzes the arch
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
-This section should contain all of your CRC cards.
-
-\begin{enumerate}[a)]
-	\item Provide a CRC Card for each identified class
-	\item Please use the format outlined in tutorial, i.e., 
-	\begin{table}[ht]
+	\begin{table}[a]
 		\centering
-		\begin{tabular}{|p{5cm}|p{5cm}|}
-		\hline 
-		 \multicolumn{2}{|l|}{\textbf{Class Name:}} \\
-		\hline
-		\textbf{Responsibility:} & \textbf{Collaborators:} \\
-		\hline
-		\vspace{1in} & \\
-		\hline
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: InputController}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Handle inputted tempo data & TempoInputPage \\ \hline
+			Handle inputted song lyrics & LyricInputPage \\ \hline
+			Handle inputted artist name & ArtistInputPage \\ \hline
+			Send data to be stored and used for searches & SongInfo \\ \hline
 		\end{tabular}
 	\end{table}
 	
-\end{enumerate}
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: TempoInputPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Convert user input into beats per minute &   \\ \hline
+			Relay information to the InputController & InputController \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: LyricInputPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Temporarily store user string inputs &   \\ \hline
+			Relay data to the InputController & InputController \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: ArtistInputPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Temporarily store user string inputs &   \\ \hline
+			Relay data to the InputController & InputController \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SearchHistory}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Process search history requests & SearchController \\ \hline
+			Store previous search results &   \\ \hline
+			Order searches by time of search &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SongDatabaseWrapper}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Produce results based of given search queries & SearchController \\ \hline
+			Store data on song lyrics, artists, and tempos &   \\ \hline
+			Order song data based of date of release &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{7cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SearchController}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Perform search use case & SearchPage \\ \hline
+			Inform SongInfo of search results & PreviousSearchPage \\ \hline
+			Inform SearchHistory of search results & SongInfo \\ \hline
+			& SearchHistory \\ \hline
+			& SearchDatabaseWrapper \\ \hline
+			& SearchErrorPage \\ \hline
+			& SearchResultsPage \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SearchErrorPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Read information on error page & SearchController \\ \hline
+			Inform SearchController of information on error page &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SearchResultsPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Read information on results page & SearchController \\ \hline
+			Inform SearchController of information on results page &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SearchPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Read information on search page & SearchController \\ \hline
+			Inform SearchController of information on the page &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: PreviousSearchPage}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Read information on previous search page & SearchController \\ \hline
+			Inform SearchController of information on the previous search page &   \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\begin{table}[a]
+		\centering
+		\begin{tabular}{| p{8cm} | c |} \hline
+			\multicolumn{2}{|l|}{\textbf{Class Name: SongInfo}} \\ \hline
+			\textbf{Responsibility:} & \textbf{Collaborators:} \\ \hline
+			Inform SearchController of users search query and wait for results & SearchController \\ \hline
+			Display to user, results of the song search & InputController \\ \hline
+			Inform InputController when a search is completed &   \\ \hline
+		\end{tabular}
+	\end{table}
+
 % End Section
 
 \appendix
@@ -179,27 +290,6 @@ This section should contain all of your CRC cards.
 % Begin Section
 Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
 % End Section
-
-\newpage
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-%	\item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram should speak for itself
-	\item Please document any non-standard notations that you may have used
-	\begin{itemize}
-		\item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your notations, document them
-	\end{itemize}
-	\item Some diagrams may be difficult to fit into one page
-	\begin{itemize}
-		\item It is OK if the text is small but please ensure that it is readable when printed
-		\item If you need to break a diagram onto multiple pages, please adopt a system of doing so and thoroughly explain how it can be reconnected from one page to the next; if you are unsure about this, please ask about it
-	\end{itemize}
-	\item Please submit the latest version of Deliverable 1 with Deliverable 2
-	\begin{itemize}
-		\item It does not have to be a freshly printed version; the latest marked version is OK
-	\end{itemize}
-	\item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will \underline{NOT} be marked
-\end{itemize}
-
 
 \end{document}
 %------------------------------------------------------------------------------
