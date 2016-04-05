@@ -4,5 +4,8 @@
     <string name="action_done">Done</string>
     <string name="action_skip">Skip</string>
     <string name="action_home">Home</string>
+
+    <!--Tempo Strings-->
     <string name="tempo_description">Tap anywhere to the beat of the song.</string>
+    <string name="tempo_disp_default_text">---.-- BPM</string>
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_color"
-    tools:context="com.mcmaster.sfwr.merlin_gui.TempoInput">
+    tools:context=".input.TempoInput">
 
     <TextView
         android:id="@+id/tempo_description"
@@ -18,13 +18,11 @@
         android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/tempo_tapped"
-        android:background="#0000"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-x
-
-
-
+            android:id="@+id/tempo_tapped"
+            android:background="#0000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:text="@string/tempo_disp_default_text"
+            android:textSize="25sp" android:textColor="#FFF"
+            android:onClick="onTempoTap"/>
 
 </RelativeLayout>

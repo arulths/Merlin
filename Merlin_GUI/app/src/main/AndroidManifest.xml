@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mcmaster.sfwr.merlin_gui">
+    package="cas.se3a04.merlin">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -16,10 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TempoInput"
+        <activity android:name=".input.TempoInput"
             android:label="@string/app_name"/>
-        <activity android:name=".LyricInput"/>
-        <activity android:name=".ArtistInput"/>
+        <activity android:name=".input.LyricInput"/>
+        <activity android:name=".input.ArtistInput"/>
         <activity android:name=".HomePage"/>
     </application>
 
