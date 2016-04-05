@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tempo_screen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context="com.mcmaster.sfwr.merlin_gui.TempoInput">
+
+    <TextView
+        android:id="@+id/tempo_description"
+        android:padding="10dp"
+        android:text="@string/tempo_description"
+        android:textColor="#FFF"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/tempo_tapped"
+        android:background="#0000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+x
+
+
+
+
+</RelativeLayout>
