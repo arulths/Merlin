@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Merlin</string>
+    <string name="action_settings">Settings</string>
+    <string name="tapButtonText">Tap Me</string>
+    <string name="tempoDispDefaultText">Tempo: ---.-- BPM</string>
+    <string name="submitButtonText">Submit</string>
+</resources>
