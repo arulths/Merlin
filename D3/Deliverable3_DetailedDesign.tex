@@ -40,14 +40,14 @@
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+This document will go in detail into the design of Merlin, a song lookup application, using various different methods such as State Charts for Controller Classes, Sequence Diagrams, and Detailed Class Diagrams.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Delineate the purpose of the document
-	\item Specify the intended audience for the document
+	\item The purpose of this documentation is to state, describe and analyze the detailed architecture of the Merlin song identification app. 
+	\item This analysis will be done through a set of predetermined and proven alysis methods and is intended to be read by the implementation team and client.
 \end{enumerate}
 % End SubSection
 
@@ -55,16 +55,18 @@ This section should provide an brief overview of the entire document.
 \label{sub:system_description}
 % Begin SubSection
 \begin{enumerate}[a)]
-	\item Give a brief description of the system. This could be a paragraph or two to give some context to this document.
+	\item The application, Merlin, contains a back end and front end system that will be discussed in this report. The system is constructed using multiple expert classes and each class will render a different set of code. A user may input the information about a song using the Tempo, Lyric or using the Artists name. The app will then use these experts to find the song that the user is trying to search for from a database of all songs. The user will have their previous search information stored on the device. This application will run on any android device, and will be available for download through the Google Play Store.
 \end{enumerate}
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
+This document has 4 sections including this one. Each section analyzes the architecture of the Merlin applications system in a different way using either diagrams and words. Following is a breakdown of what each section analyzes:
 \begin{enumerate}[a)]
-	\item Describe what the rest of the document contains 
-	\item Explain how the document is organised
+	\item State Charts for Controller Classes : This section will demonstrate all the different possible states that they application can be in while it is running and active.
+	\item Sequence Diagrams : This section will demonstrate all the various different sequences of actions and results that may be followed as the user uses the application.
+	\item Detailed Class Diagram : This section will demonstrate all the various classes, it's attributes and their relationships with each other within the code of the application.
 \end{enumerate}
 
 % End SubSection
@@ -78,6 +80,24 @@ This section should provide an brief overview of the entire document.
 	\centering
 	\includegraphics[scale=0.6]{UIController-StatechartDiagram.png}
 	\caption{Statechart Diagram for UIController}
+	\label{fig:uicontroller_statechart}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{TempoController-StatechartDiagram.png}
+	\caption{Statechart Diagram for TempoController}
+	\label{fig:uicontroller_statechart}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{LyricController-StatechartDiagram.png}
+	\caption{Statechart Diagram for LyricController}
+	\label{fig:uicontroller_statechart}
+\end{figure}
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{ArtistController-StatechartDiagram.png}
+	\caption{Statechart Diagram for ArtistController}
 	\label{fig:uicontroller_statechart}
 \end{figure}
 \FloatBarrier
