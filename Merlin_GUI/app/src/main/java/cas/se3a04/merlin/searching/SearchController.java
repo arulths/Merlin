@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
 
 public class SearchController {
     public static final String INPUT_DATA_KEY = "seachInput";
-
+    
     private ExecutorService executorService = Executors.newCachedThreadPool();
     private TempoExpert tempoExpert = TempoExpert.getInstance();
     private ArtistLyricExpert artistLyricExpert = ArtistLyricExpert.getInstance();
