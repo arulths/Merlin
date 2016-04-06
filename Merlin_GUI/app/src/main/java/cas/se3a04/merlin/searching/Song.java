@@ -38,8 +38,9 @@ public class Song {
         if (o == null || getClass() != o.getClass()) return false;
 
         Song song = (Song) o;
-
-        if (tempo != song.tempo) return false;
+        int range = 50;
+        if (tempo < song.tempo - range || tempo > song.tempo + range) return  false;
+//        if (tempo != song.tempo) return false;
         if (!artist.equals(song.artist)) return false;
         return name.equals(song.name);
 
