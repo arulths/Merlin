@@ -23,6 +23,7 @@
         <activity android:name=".input.LyricInput"/>
         <activity android:name=".input.ArtistInput"/>
         <activity android:name=".HomePage"/>
+        <activity android:name=".searching.Search"/>
     </application>
 
 </manifest>

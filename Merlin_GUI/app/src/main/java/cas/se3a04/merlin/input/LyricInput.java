@@ -16,12 +16,16 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import cas.se3a04.merlin.HomePage;
+import cas.se3a04.merlin.LaunchScreen;
 import cas.se3a04.merlin.R;
+import cas.se3a04.merlin.searching.SearchController;
 
 /**
  * Created by Stephan on 2016-04-03.
  */
 public class LyricInput extends AppCompatActivity{
+    public static final String RESULT_LYRIC_KEY = "lyric";
+    public static final String NO_LYRIC = "";
 
     private TextView txtSpeechInput;
     private ImageButton btnSpeak;
@@ -30,12 +34,12 @@ public class LyricInput extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.artist_gui);
+        setContentView(R.layout.lyric_gui);
 
         txtSpeechInput = (TextView) findViewById(R.id.lyric_userinput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
-        getActionBar().hide();
+        //getActionBar().hide();
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
@@ -90,25 +94,34 @@ public class LyricInput extends AppCompatActivity{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        Bundle data = getIntent().getBundleExtra(SearchController.INPUT_DATA_KEY);
+        if (data == null) data = new Bundle();
+        Intent targetActivity;
+        //Stuff happens when you select options in the actionbar
         switch(item.getItemId()){
             case R.id.home:
                 //Return to home page with any data that has been entered
-                Intent returnToHome = new Intent(LyricInput.this, HomePage.class);
-                startActivity(returnToHome);
-                return true;
+                targetActivity = new Intent(LyricInput.this, LaunchScreen.class);
+                data.putCharSequence(RESULT_LYRIC_KEY, NO_LYRIC);
+                break;
             case R.id.skip:
                 //Data does not need to be passed here
-                Intent skipToArtist= new Intent(LyricInput.this, ArtistInput.class);
-                startActivity(skipToArtist);
-                return true;
+                targetActivity = new Intent(LyricInput.this, ArtistInput.class);
+                data.putCharSequence(RESULT_LYRIC_KEY, NO_LYRIC);
+                break;
             case R.id.done:
                 //Put code in here that passes data to the main SearchController
-                Intent finishToArtist = new Intent(LyricInput.this,ArtistInput.class);
-                startActivity(finishToArtist);
+                targetActivity = new Intent(LyricInput.this, ArtistInput.class);
+                CharSequence in = txtSpeechInput.getText();
+                if (in == null) in = "";
+                data.putCharSequence(RESULT_LYRIC_KEY, in);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
+        //One of the appropriate menu items were pressed so startup the next activity
+        targetActivity.putExtra(SearchController.INPUT_DATA_KEY, data);
+        startActivity(targetActivity);
+        return true;
     }
 }

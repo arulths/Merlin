@@ -43,8 +43,8 @@ public class TempoExpert {
         return uriBuilder.build().toString();
     }
 
-    public FutureTask<Set<Song>> findSongs(final int tempo) {
-        return new FutureTask<>(new Callable<Set<Song>>() {
+    public Callable<Set<Song>> findSongs(final int tempo) {
+        return new Callable<Set<Song>>() {
             @Override
             public Set<Song> call() throws Exception {
                 Set<Song> songs = new HashSet<>();
@@ -62,6 +62,6 @@ public class TempoExpert {
 
                 return songs;
             }
-        });
+        };
     }
 }

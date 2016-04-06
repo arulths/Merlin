@@ -6,11 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import cas.se3a04.merlin.input.TempoInput;
+import cas.se3a04.merlin.searching.SearchController;
 
 
 public class LaunchScreen extends AppCompatActivity {
-
-
     private Button mButton = null;
 
     @Override
@@ -24,6 +23,7 @@ public class LaunchScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), TempoInput.class);
+                i.putExtra(SearchController.INPUT_DATA_KEY, new Bundle());
                 startActivity(i);
             }
         });

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,12 +17,17 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import cas.se3a04.merlin.HomePage;
+import cas.se3a04.merlin.LaunchScreen;
 import cas.se3a04.merlin.R;
+import cas.se3a04.merlin.searching.Search;
+import cas.se3a04.merlin.searching.SearchController;
 
 /**
  * Created by Stephan on 2016-04-03.
  */
 public class ArtistInput extends AppCompatActivity {
+    public static final String RESULT_ARTIST_KEY = "artist";
+    public static final String NO_ARTIST = "";
 
     private TextView txtSpeechInput;
     private ImageButton btnSpeak;
@@ -35,7 +41,7 @@ public class ArtistInput extends AppCompatActivity {
         txtSpeechInput = (TextView) findViewById(R.id.artist_userinput);
         btnSpeak = (ImageButton) findViewById(R.id.btnSpeak);
 
-        getActionBar().hide();
+        //getActionBar().hide();
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
@@ -44,9 +50,6 @@ public class ArtistInput extends AppCompatActivity {
                 promptSpeechInput();
             }
         });
-
-
-
     }
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -90,20 +93,34 @@ public class ArtistInput extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Bundle data = getIntent().getBundleExtra(SearchController.INPUT_DATA_KEY);
+        if (data == null) data = new Bundle();
+        Intent targetActivity;
+        //Stuff happens when you select options in the actionbar
         switch(item.getItemId()){
             case R.id.home:
                 //Return to home page with any data that has been entered
-                Intent returnToHome = new Intent(ArtistInput.this, HomePage.class);
-                startActivity(returnToHome);
-                return true;
+                targetActivity = new Intent(ArtistInput.this, LaunchScreen.class);
+                data.putCharSequence(RESULT_ARTIST_KEY, NO_ARTIST);
+                break;
+            case R.id.skip:
+                //Data does not need to be passed here
+                targetActivity = new Intent(ArtistInput.this, Search.class);
+                data.putCharSequence(RESULT_ARTIST_KEY, NO_ARTIST);
+                break;
             case R.id.done:
-                //Navigate to home page with data (last page)
-                Intent finishToHome = new Intent(ArtistInput.this, HomePage.class);
-                startActivity(finishToHome);
-                return true;
+                //Put code in here that passes data to the main SearchController
+                targetActivity = new Intent(ArtistInput.this, Search.class);
+                CharSequence in = txtSpeechInput.getText();
+                if (in == null) in = "";
+                data.putCharSequence(RESULT_ARTIST_KEY, in);
+                break;
             default:
                 return super.onOptionsItemSelected(item);
-
         }
+        //One of the appropriate menu items were pressed so startup the next activity
+        targetActivity.putExtra(SearchController.INPUT_DATA_KEY, data);
+        startActivity(targetActivity);
+        return true;
     }
 }

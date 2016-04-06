@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import cas.se3a04.merlin.HomePage;
+import cas.se3a04.merlin.LaunchScreen;
 import cas.se3a04.merlin.R;
 import cas.se3a04.merlin.searching.SearchController;
 
@@ -25,6 +27,17 @@ public class TempoInput extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tempo_gui);
+        Button tempoTapButton = (Button) this.findViewById(R.id.tempo_tapped);
+        tempoTapButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    onTempoTap(view);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     @Override
@@ -37,12 +50,13 @@ public class TempoInput extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Bundle data = getIntent().getBundleExtra(SearchController.INPUT_DATA_KEY);
+        if (data == null) data = new Bundle();
         Intent targetActivity;
         //Stuff happens when you select options in the actionbar
         switch(item.getItemId()){
             case R.id.home:
                 //Return to home page with any data that has been entered
-                targetActivity = new Intent(TempoInput.this, HomePage.class);
+                targetActivity = new Intent(TempoInput.this, LaunchScreen.class);
                 data.putDouble(RESULT_TEMPO_KEY, NO_TEMPO);
                 break;
             case R.id.skip:

@@ -1,6 +1,10 @@
 package cas.se3a04.merlin.searching;
 
-public class Song {
+import android.os.Parcel;
+import android.os.Parcelable;
+import cas.se3a04.merlin.input.TempoInput;
+
+public class Song implements Parcelable {
     private final String artist;
     private final String name;
     private final int tempo;
@@ -10,6 +14,24 @@ public class Song {
         this.name = name;
         this.tempo = tempo;
     }
+
+    protected Song(Parcel in) {
+        artist = in.readString();
+        name = in.readString();
+        tempo = in.readInt();
+    }
+
+    public static final Creator<Song> CREATOR = new Creator<Song>() {
+        @Override
+        public Song createFromParcel(Parcel in) {
+            return new Song(in);
+        }
+
+        @Override
+        public Song[] newArray(int size) {
+            return new Song[size];
+        }
+    };
 
     public int getTempo() {
         return tempo;
@@ -40,10 +62,8 @@ public class Song {
         Song song = (Song) o;
         int range = 50;
         if (tempo < song.tempo - range || tempo > song.tempo + range) return  false;
-//        if (tempo != song.tempo) return false;
         if (!artist.equals(song.artist)) return false;
         return name.equals(song.name);
-
     }
 
     @Override
@@ -52,5 +72,17 @@ public class Song {
         result = 31 * result + name.hashCode();
         result = 31 * result + tempo;
         return result;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(artist);
+        parcel.writeString(name);
+        parcel.writeInt(tempo);
     }
 }
