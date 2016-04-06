@@ -8,4 +8,12 @@
     <!--Tempo Strings-->
     <string name="tempo_description">Tap anywhere to the beat of the song.</string>
     <string name="tempo_disp_default_text">---.-- BPM</string>
+
+    <!--Artist and Lyrics Strings-->
+
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
+    <string name="tap_on_mic">Tap on mic and say lyrics</string>
+    <string name="tap_on_mic_artist">Tap on mic and say artist</string>
+
 </resources>
