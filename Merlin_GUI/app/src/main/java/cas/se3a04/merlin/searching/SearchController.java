@@ -6,7 +6,7 @@ import java.util.Set;
 public class SearchController {
     public static final String INPUT_DATA_KEY = "seachInput";
 
-    public Song selectSong(Set<Song> songsWithMatchingTempo,Set<Song> songsWithMatchingLyrics,Set<Song> songsWithMatchingArtists){
+    public static Song selectSong(Set<Song> songsWithMatchingTempo,Set<Song> songsWithMatchingLyrics,Set<Song> songsWithMatchingArtists){
         Set<Song> matchingSongs = songsWithMatchingTempo;
         matchingSongs.retainAll(songsWithMatchingLyrics);
         matchingSongs.retainAll(songsWithMatchingArtists);
