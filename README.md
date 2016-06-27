@@ -1,0 +1,1 @@
+Merlin is a song lookup application natively run on the Android platform that allows a user to lookup any song just by supplying the BPM (beats per minute) by tapping on the screen, song lyrics (speech-to-text) or artist name. 
